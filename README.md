@@ -5,7 +5,7 @@
 
 Мой вариант 6 представлен ниже:
 
-![variant](https://github.com/kolpakovee/avs_idz2/blob/main/вариант.png)
+![v6](https://github.com/kolpakovee/avs_idz3/blob/main/v6.png)
 
 ---
 **Формат ввода:**
