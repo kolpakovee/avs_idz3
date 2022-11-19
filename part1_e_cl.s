@@ -16,10 +16,10 @@ randomValue:                                #функция randomValue
 	cvtsi2sd	xmm0, eax
 	movsd	xmm2, QWORD PTR .LC0[rip]
 	movapd	xmm1, xmm0
-	divsd	xmm1, xmm2
+	divsd	xmm1, xmm2                      #(double) rand() / RAND_MAX
 	movsd	xmm0, QWORD PTR .LC1[rip]
-	mulsd	xmm0, xmm1
-	movsd	xmm1, QWORD PTR .LC2[rip]
+	mulsd	xmm0, xmm1                      #умножение xmm0 * xmm1
+	movsd	xmm1, QWORD PTR .LC2[rip]       #число 115
 	subsd	xmm0, xmm1
 	movq	rax, xmm0
 	movq	xmm0, rax
@@ -52,14 +52,14 @@ main:                                       #функция main
 	mov	DWORD PTR -116[rbp], edi            #хранение параметра функции int argc
 	mov	QWORD PTR -128[rbp], rsi            #хранение парметра функции char** argv
 	pxor	xmm0, xmm0
-	movsd	QWORD PTR -8[rbp], xmm0
-	cmp	DWORD PTR -116[rbp], 2
+	movsd	QWORD PTR -8[rbp], xmm0         #double result = 0
+	cmp	DWORD PTR -116[rbp], 2              #сравнение argc и 2
 	jne	.L4
-	mov	rax, QWORD PTR -128[rbp]
+	mov	rax, QWORD PTR -128[rbp]            #rax := argv
 	add	rax, 8
 	mov	rax, QWORD PTR [rax]
-	movzx	eax, BYTE PTR [rax]
-	cmp	al, 49
+	movzx	eax, BYTE PTR [rax]             #eax := argv[1][0]
+	cmp	al, 49                              #сравнение argv[1][0] и '1'
 	jne	.L4
 	mov	eax, 0
 	call	randomValue                     #вызов функции randomValue без передачи параметров
@@ -67,13 +67,13 @@ main:                                       #функция main
 	mov	QWORD PTR -104[rbp], rax            #val := randomValue()
 	jmp	.L5
 .L4:
-	cmp	DWORD PTR -116[rbp], 2
+	cmp	DWORD PTR -116[rbp], 2              #сравнение argc и 2
 	jne	.L6
-	mov	rax, QWORD PTR -128[rbp]
+	mov	rax, QWORD PTR -128[rbp]            #rax := argv
 	add	rax, 8
 	mov	rax, QWORD PTR [rax]
-	movzx	eax, BYTE PTR [rax]
-	cmp	al, 50
+	movzx	eax, BYTE PTR [rax]             #eax := argv[1][0]
+	cmp	al, 50                              #сравнение argv[1][0] и '2'
 	jne	.L6
 	lea	rax, -104[rbp]                      #параметр &val для функции scanf
 	mov	rsi, rax
@@ -83,15 +83,15 @@ main:                                       #функция main
 	call	__isoc99_scanf@PLT              #вызов функции scanf
 	jmp	.L5
 .L6:
-	cmp	DWORD PTR -116[rbp], 4
+	cmp	DWORD PTR -116[rbp], 4              #сравнение argc и 4
 	jne	.L7
-	mov	rax, QWORD PTR -128[rbp]
+	mov	rax, QWORD PTR -128[rbp]            #rax := argv
 	add	rax, 8
 	mov	rax, QWORD PTR [rax]
-	movzx	eax, BYTE PTR [rax]
-	cmp	al, 51
+	movzx	eax, BYTE PTR [rax]             #eax := argv[1][0]
+	cmp	al, 51                              #сравнение argv[1][0] и '3'
 	jne	.L7
-	mov	rax, QWORD PTR -128[rbp]            #argv[2] для вызова функции fopen(argv[2], "r")
+	mov	rax, QWORD PTR -128[rbp]            #rax := argv для вызова функции fopen(argv[2], "r")
 	add	rax, 16
 	mov	rax, QWORD PTR [rax]
 	lea	rdx, .LC5[rip]                      #строка-формат "r" для вызова функции fopen(argv[2], "r")
@@ -125,82 +125,82 @@ main:                                       #функция main
 	jmp	.L9
 .L14:
 	pxor	xmm0, xmm0
-	movsd	QWORD PTR -8[rbp], xmm0
+	movsd	QWORD PTR -8[rbp], xmm0         #result := 0
 	pxor	xmm0, xmm0
-	movsd	QWORD PTR -16[rbp], xmm0
+	movsd	QWORD PTR -16[rbp], xmm0        #a := 0
 .L13:
-	movsd	xmm0, QWORD PTR -16[rbp]
+	movsd	xmm0, QWORD PTR -16[rbp]        #xmm0 := a
 	mov	rax, QWORD PTR .LC7[rip]
 	movapd	xmm1, xmm0
 	movq	xmm0, rax
-	call	pow@PLT
+	call	pow@PLT                         #pow(-1, a)
 	movsd	QWORD PTR -136[rbp], xmm0
-	mov	rax, QWORD PTR -104[rbp]
-	movsd	xmm0, QWORD PTR -16[rbp]
+	mov	rax, QWORD PTR -104[rbp]            #rax := val
+	movsd	xmm0, QWORD PTR -16[rbp]        #xmm0 := a
 	movapd	xmm1, xmm0
 	movq	xmm0, rax
-	call	pow@PLT
+	call	pow@PLT                         #вызов функции pow(val,a)
 	movapd	xmm3, xmm0
-	mulsd	xmm3, QWORD PTR -136[rbp]
+	mulsd	xmm3, QWORD PTR -136[rbp]       #xmm3 := результат умножения
 	movsd	QWORD PTR -136[rbp], xmm3
-	mov	rax, QWORD PTR -16[rbp]
-	movq	xmm0, rax
-	call	factorial@PLT
+	mov	rax, QWORD PTR -16[rbp]             #rax := a
+	movq	xmm0, rax                       #xmm0 := rax
+	call	factorial@PLT                   #вызов функции факториал
 	movapd	xmm1, xmm0
-	movsd	xmm0, QWORD PTR -136[rbp]
-	divsd	xmm0, xmm1
-	movsd	QWORD PTR -56[rbp], xmm0
-	movsd	xmm0, QWORD PTR -8[rbp]
-	addsd	xmm0, QWORD PTR -56[rbp]
-	comisd	xmm0, QWORD PTR .LC8[rip]
+	movsd	xmm0, QWORD PTR -136[rbp]       #получаем результат умножения
+	divsd	xmm0, xmm1                      #xmm0 := результат деления
+	movsd	QWORD PTR -56[rbp], xmm0        #next := резульат выражения
+	movsd	xmm0, QWORD PTR -8[rbp]         #xmm0 := result
+	addsd	xmm0, QWORD PTR -56[rbp]        #xmm0 := result + next
+	comisd	xmm0, QWORD PTR .LC8[rip]       #сравнение result + next >= INFINITY
 	ja	.L18
-	movsd	xmm0, QWORD PTR -8[rbp]
-	addsd	xmm0, QWORD PTR -56[rbp]
-	movsd	QWORD PTR -8[rbp], xmm0
-	movsd	xmm1, QWORD PTR -16[rbp]
+	movsd	xmm0, QWORD PTR -8[rbp]         #xmm0 := result
+	addsd	xmm0, QWORD PTR -56[rbp]        #xmm0 := result + next
+	movsd	QWORD PTR -8[rbp], xmm0         #result := xmm0
+	movsd	xmm1, QWORD PTR -16[rbp]        #xmm1 := a
 	movsd	xmm0, QWORD PTR .LC9[rip]
-	addsd	xmm0, xmm1
-	movsd	QWORD PTR -16[rbp], xmm0
-	movsd	xmm0, QWORD PTR -56[rbp]
+	addsd	xmm0, xmm1                      #xmm0 += xmm1
+	movsd	QWORD PTR -16[rbp], xmm0        #a = xmm0
+	movsd	xmm0, QWORD PTR -56[rbp]        #xmm0 := next
 	movq	xmm1, QWORD PTR .LC10[rip]
 	andpd	xmm0, xmm1
 	pxor	xmm1, xmm1
-	comisd	xmm0, xmm1
+	comisd	xmm0, xmm1                      #сравнение next и 0 (fabs(next) > 0)
 	ja	.L13
 	jmp	.L12
 .L18:
 	nop
 .L12:
-	add	DWORD PTR -20[rbp], 1
+	add	DWORD PTR -20[rbp], 1               #i += 1
 .L9:
-	cmp	DWORD PTR -20[rbp], 999
+	cmp	DWORD PTR -20[rbp], 999             #сравнение i и 999
 	jle	.L14
 	lea	rax, -96[rbp]                           #переменная &end для вызова функции clock_gettime
 	mov	rsi, rax
 	mov	edi, 1
 	call	clock_gettime@PLT                   #вызов функции clock_gettime
-	mov	rax, QWORD PTR -96[rbp]
+	mov	rax, QWORD PTR -96[rbp]                 #rax := end.tv_sec
 	pxor	xmm1, xmm1
 	cvtsi2sd	xmm1, rax
 	movsd	xmm0, QWORD PTR .LC11[rip]
 	mulsd	xmm1, xmm0
-	mov	rax, QWORD PTR -88[rbp]
+	mov	rax, QWORD PTR -88[rbp]                 #rax := end.tv_nsec
 	pxor	xmm0, xmm0
 	cvtsi2sd	xmm0, rax
 	addsd	xmm0, xmm1
-	mov	rax, QWORD PTR -80[rbp]
+	mov	rax, QWORD PTR -80[rbp]                 #rax := start.tv_sec
 	pxor	xmm2, xmm2
 	cvtsi2sd	xmm2, rax
 	movsd	xmm1, QWORD PTR .LC11[rip]
 	mulsd	xmm1, xmm2
 	subsd	xmm0, xmm1
-	mov	rax, QWORD PTR -72[rbp]
+	mov	rax, QWORD PTR -72[rbp]                 #rax := start.tv_nsec
 	pxor	xmm1, xmm1
 	cvtsi2sd	xmm1, rax
 	subsd	xmm0, xmm1
 	cvttsd2si	rax, xmm0
-	mov	QWORD PTR -40[rbp], rax
-	cmp	DWORD PTR -116[rbp], 4
+	mov	QWORD PTR -40[rbp], rax             #result_time := результат выражения
+	cmp	DWORD PTR -116[rbp], 4              #сравнение argc и 4
 	jne	.L15
 	mov	rax, QWORD PTR -128[rbp]            #rax := argv[3] для вызова функции fopen
 	add	rax, 24
@@ -218,27 +218,27 @@ main:                                       #функция main
 	mov	rdi, rax
 	mov	eax, 1
 	call	fprintf@PLT                     #вызов функции fprintf
-	movsd	xmm0, QWORD PTR -104[rbp]
+	movsd	xmm0, QWORD PTR -104[rbp]       #xmm0 := val
 	movq	xmm1, QWORD PTR .LC14[rip]
 	xorpd	xmm0, xmm1
 	movq	rax, xmm0
 	movq	xmm0, rax
-	call	exp@PLT
+	call	exp@PLT                         #exp(-val)
 	movapd	xmm1, xmm0
-	movsd	xmm0, QWORD PTR -8[rbp]
-	subsd	xmm0, xmm1
+	movsd	xmm0, QWORD PTR -8[rbp]         #xmm0 := result
+	subsd	xmm0, xmm1                      #xmm0 -= exp(-val)
 	movq	xmm1, QWORD PTR .LC10[rip]
 	andpd	xmm0, xmm1
 	movsd	QWORD PTR -136[rbp], xmm0
-	movsd	xmm0, QWORD PTR -104[rbp]
+	movsd	xmm0, QWORD PTR -104[rbp]       #xmm0 := val
 	movq	xmm1, QWORD PTR .LC14[rip]
 	movapd	xmm4, xmm0
 	xorpd	xmm4, xmm1
 	movq	rax, xmm4
 	movq	xmm0, rax
-	call	exp@PLT
+	call	exp@PLT                         #exp(-val)
 	movsd	xmm1, QWORD PTR -136[rbp]
-	divsd	xmm1, xmm0
+	divsd	xmm1, xmm0                      #xmm1 /= xmm0
 	movsd	xmm0, QWORD PTR .LC2[rip]
 	mulsd	xmm1, xmm0
 	movq	rdx, xmm1
@@ -264,29 +264,29 @@ main:                                       #функция main
 	mov	rdi, rax
 	mov	eax, 1
 	call	printf@PLT                      #вызов функции printf
-	movsd	xmm0, QWORD PTR -104[rbp]
+	movsd	xmm0, QWORD PTR -104[rbp]       #xmm0 := val
 	movq	xmm1, QWORD PTR .LC14[rip]
 	xorpd	xmm0, xmm1
 	movq	rax, xmm0
 	movq	xmm0, rax
-	call	exp@PLT
+	call	exp@PLT                         #exp(-val)
 	movapd	xmm1, xmm0
-	movsd	xmm0, QWORD PTR -8[rbp]
+	movsd	xmm0, QWORD PTR -8[rbp]         #xmm0 := result
 	subsd	xmm0, xmm1
 	movq	xmm1, QWORD PTR .LC10[rip]
 	andpd	xmm0, xmm1
 	movsd	QWORD PTR -136[rbp], xmm0
-	movsd	xmm0, QWORD PTR -104[rbp]
+	movsd	xmm0, QWORD PTR -104[rbp]       #xmm0 := val
 	movq	xmm1, QWORD PTR .LC14[rip]
 	movapd	xmm5, xmm0
 	xorpd	xmm5, xmm1
 	movq	rax, xmm5
 	movq	xmm0, rax
-	call	exp@PLT
+	call	exp@PLT                         #exp(-val)
 	movsd	xmm1, QWORD PTR -136[rbp]
-	divsd	xmm1, xmm0
+	divsd	xmm1, xmm0                      #xmm1 /= xmm0
 	movsd	xmm0, QWORD PTR .LC2[rip]
-	mulsd	xmm1, xmm0
+	mulsd	xmm1, xmm0                      #xmm1 *= xmm0
 	movq	rax, xmm1
 	movq	xmm0, rax
 	lea	rax, .LC15[rip]                     #получение строки-формата для вызова функции printf
