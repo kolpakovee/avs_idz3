@@ -5,7 +5,7 @@
 
 Мой вариант 6 представлен ниже:
 
-![v6](https://github.com/kolpakovee/avs_idz3/blob/main/v6.png)
+![v6](https://github.com/kolpakovee/avs_idz3/blob/main/images/v6.png)
 
 ---
 **Формат ввода:**
@@ -122,6 +122,19 @@ double a = 0;
 - Информация добавлена в отчёт.
 
 ## 7 баллов
-
+![7_1](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_1.png)
+---
+![7_2](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_2.png)
+---
+![7_3](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_3.png)
+---
+![7_4](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_4.png)
 
 ## 8 баллов
+![8_1](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_1.png)
+---
+![8_2](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_2.png)
+---
+![8_3](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_3.png)
+---
+![8_4](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_4.png)
