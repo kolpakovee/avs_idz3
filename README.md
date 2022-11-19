@@ -121,7 +121,7 @@ double a = 0;
 ![6_4](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_4.png)
 - Информация добавлена в отчёт.
 
-##7 баллов
+## 7 баллов
 
 
-##8 баллов
+## 8 баллов
