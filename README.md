@@ -55,9 +55,9 @@ Time: {результат замера по времени для выполне
 
 **Тесты**
 
-![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test8.jpg)
-![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test9.jpg)
-![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test7.jpg)
+![4_5](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test8.jpg)
+![4_5](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test9.jpg)
+![4_5](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test7.jpg)
 
 ---
 ![4_6](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_6.png)
