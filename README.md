@@ -9,27 +9,31 @@
 
 ---
 **Формат ввода:**
-- Вводится строка, содержащая n (n <= 1 000 000) символов только из первой половины ASCII-таблицы (коды в диапазоне 0–127), затем НЕОБХОДИМО нажать ctrl + D! Так обозначается конец ввода. 
+- Программа запускается через командую строку в формате:
+- Вводится число a: 1 -> генерируется рандомное число, 2-> число вводится следующим аргументов, 3 -> вводится два файла (входной и выходной). Впрочем, это всё видно в тестах, поэтому советую заглянуть туда.
+
+```
+./foo_c_e {a} {file.in} {file.txt}
+```
+
 ---
 **Формат вывода.**
-- Для каждого отображаемого (ASCII-код >= 32) символа из вводимой строки выводится число k, которое показывает сколько раз этот символ встречался в строке. Затем выводится число m - кол-во различный отображаемых символов в строке. Например для строки "Egor" вывод будет:
+Выводится 3 строки в формате:
 ```
-E => 1
-g => 1
-o => 1
-r => 1
-4
+Result: {результат}
+Precision: {точность}
+Time: {результат замера по времени для выполнения программы 1000 раз}
 ```
 ---
 ## 4 балла
 ![4_1](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_1.png)
- - В проекте это файл main.c
+ - В проекте это два файла part1_e.c и part2_e.c
 ---
 ![4_2](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_2.png)
 
 - Компиляция без отладочных опций:
 
-![compilation1](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/compilation1.png)
+![compilation1](https://github.com/kolpakovee/avs_idz3/blob/main/images/k4_2.png)
 
 - После компиляции создался файл first.s, комментарии написаны в нём
 ---
@@ -38,13 +42,13 @@ r => 1
 
 - Использованы аргументы командой строки и ручное редактирование, получился файл second.s
 
-![compilation2](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/compilation2.png)
+![compilation2](https://github.com/kolpakovee/avs_idz3/blob/main/images/k4_3.png)
 
 ---
 ![4_4](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_4.png)
 
 - Программа скомпилирована и скомпонована без опций отладки
-![compilation3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/compilation3)
+![compilation3](https://github.com/kolpakovee/avs_idz3/blob/main/images/k4_4.png)
 
 ---
 ![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_5.png)
