@@ -35,12 +35,12 @@ Time: {результат замера по времени для выполне
 
 ![compilation1](https://github.com/kolpakovee/avs_idz3/blob/main/images/k4_2.png)
 
-- После компиляции создался файл first.s, комментарии написаны в нём
+- После компиляции созданы файлы part1_e.s и part2_e.s, комментарии написаны в них.
 ---
 
 ![4_3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_3.png)
 
-- Использованы аргументы командой строки и ручное редактирование, получился файл second.s
+- Использованы аргументы командой строки и ручное редактирование, получились файлы part1_e_cl.s и part2_e_cl.s.
 
 ![compilation2](https://github.com/kolpakovee/avs_idz3/blob/main/images/k4_3.png)
 
@@ -55,7 +55,9 @@ Time: {результат замера по времени для выполне
 
 **Тесты**
 
-
+![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test8.jpg)
+![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test9.jpg)
+![4_5](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/test7.jpg)
 
 ---
 ![4_6](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/4_6.png)
