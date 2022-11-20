@@ -125,18 +125,12 @@ double a = 0;
 ## 6 баллов
 ![6_1](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_1.png)
 
-- Произведёе рефакторинг программы, все изменения можно увидеть в файле optimized.s:
-1) DWORD PTR -4[rbp] -> r12d
-2) DWORD PTR -8[rbp] -> r13d
-3) DWORD PTR -28[rbp] -> r14d
-4) QWORD PTR -24[rbp] -> r15
-
- - ДОДЕЛАТЬ!
+- Произведёе рефакторинг программы за счёт максимального использования регистров. Это можно увидеть в файлах part1_e_cl_os.s и part2_e_cl_os.s
 
 ---
 ![6_2](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_2.png)
-- Комментарии добавлены в файл optimized.s (внизу файла зафиксированы все произведённые замены).
-- ДОДЕЛАТЬ!
+- Комментарии добавлены в файлы part1_e_cl_os.s и part2_e_cl_os.s(внизу файла зафиксированы все произведённые замены).
+
 ---
 ![6_3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_3.png)
 *Тест 1*
