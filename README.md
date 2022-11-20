@@ -12,14 +12,23 @@
 - Программа запускается через командую строку в формате:
 
 ```
-./foo_c_e {a} {file.in} {file.txt}
+./foo_c_e {a} {file.in (опционально)} {file.txt(опционально)}
 ```
 - Вводится число a: 
-1 -> генерируется рандомное число 
+1 -> генерируется рандомное число
+```
+./foo_c_e 1
+```
 2 -> число вводится следующим аргументом
+```
+./foo_c_e 2 -27
+```
 3 -> вводится два файла (входной и выходной). 
+```
+./foo_c_e 3 test.in out.txt
+```
 Впрочем, это всё видно в тестах, поэтому советую заглянуть туда.
-
+ВАЖНО, что число предполагается типа double из диапазона [-100;15]!
 ---
 **Формат вывода.**
 Выводится 3 строки в формате:
@@ -155,16 +164,71 @@ gcc ./part2_e_cl_os.o part1_e_cl_os.o foo_e_cl_os -lm
 ```
 ---
 ![7_2](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_2.png)
+- Для ввода/вывода результата из файла необходимо ввести:
+```
+./foo_el_cl_os 3 {path to input file} {path to output file}
+```
+- Подробнее это показано в тестах. Командная строка проверяет корректность, если что-то пойдёт не так - результат будет "Invalid input" и программа завершит выполнение.
 ---
 ![7_3](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_3.png)
+- Это файлы в папке tests: test1_e.in - test6_e.in. Демонстрация работы с ними:
+*Тест 1*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test1.jpg)
+*Тест 2*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test2.jpg)
+*Тест 3*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test3.jpg)
+*Тест 4*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test4.jpg)
+*Тест 5*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test5.jpg)
+*Тест 6*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test6.jpg)
+- Тест 6 показывает, что будет, если ввести некорректное число аргументов.
 ---
 ![7_4](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_4.png)
+- Добавлена возможность ввода/вывода из файла
+- Формат входных файлов test1.in
+- Формат выходных файлов output.txt
 
 ## 8 баллов
 ![8_1](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_1.png)
+- Добавлен генератор случайных чисел, генерирующий числа в диапазоне [-100;15]
+```
+double randomValue() {
+    srand(time(NULL));
+    return -100 + (double) rand() / RAND_MAX * (115);
+}
+```
 ---
 ![8_2](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_2.png)
+- Есть 3 типа ввода: из файла, из командой строки, рандомые входные данные
+1) Рандомные входные данные
+```
+./foo_c_e 1
+```
+2) Входные данные из командой строки
+```
+./foo_c_e 2 -27
+```
+3) Входные данные из файла и вывод результата в файл
+```
+./foo_c_e 3 test.in out.txt
+```
 ---
 ![8_3](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_3.png)
+- Добавлены функции замера времени, это можно увидеть в файле part1_e.c:
+```
+struct timespec start;
+struct timespec end;
+clock_gettime(CLOCK_MONOTONIC, &start);
+(Работа программы без ввода/вывода в цикле на 1000 повторений) 
+clock_gettime(CLOCK_MONOTONIC, &end);
+long long result_time = end.tv_sec * 10e8 + end.tv_nsec - start.tv_sec * 10e8 - start.tv_nsec;
+```
 ---
 ![8_4](https://github.com/kolpakovee/avs_idz3/blob/main/images/8_4.png)
+- Тесты замеры времени
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test7.jpg)
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test8.jpg)
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test9.jpg)
