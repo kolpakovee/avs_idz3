@@ -38,14 +38,14 @@ randomValue:
 	.type	main, @function
 main:
 	endbr64
-	push	r15
-	push	r14
-	push	r13
-	push	r12
-	mov	r12d, edi
+	push	r15                 #использование регистров
+	push	r14                 #использование регистров
+	push	r13                 #использование регистров
+	push	r12                 #использование регистров
+	mov	r12d, edi               #помещаем argc в регистр r12d вместо DWORD PTR -116[rbp]
 	push	rbp
 	push	rbx
-	mov	rbx, rsi
+	mov	rbx, rsi                #хранение парметра функции char** argv в регистре
 	sub	rsp, 88
 	cmp	edi, 2
 	jne	.L4
@@ -105,12 +105,12 @@ main:
 	call	pow@PLT
 	mulsd	xmm0, QWORD PTR 8[rsp]
 	movsd	xmm1, QWORD PTR 16[rsp]
-	movq	r13, xmm0
+	movq	r13, xmm0                           #r13 := xmm0
 	movaps	xmm0, xmm1
 	call	factorial@PLT
 	movsd	xmm2, QWORD PTR 24[rsp]
 	movaps	xmm3, xmm0
-	movq	xmm0, r13
+	movq	xmm0, r13                           #xmm0 := r13
 	divsd	xmm0, xmm3
 	movsd	QWORD PTR 8[rsp], xmm2
 	addsd	xmm2, xmm0
@@ -128,14 +128,14 @@ main:
 	jne	.L11
 	lea	rsi, 64[rsp]
 	mov	edi, 1
-	lea	r15, .LC13[rip]
+	lea	r15, .LC13[rip]                     #использование регистров
 	call	clock_gettime@PLT
 	cvtsi2sd	xmm0, QWORD PTR 64[rsp]
-	cmp	r12d, 4
+	cmp	r12d, 4                             #использование регистров
 	movsd	xmm2, QWORD PTR .LC11[rip]
 	cvtsi2sd	xmm1, QWORD PTR 72[rsp]
-	lea	r14, .LC15[rip]
-	lea	r12, .LC16[rip]
+	lea	r14, .LC15[rip]                     #использование регистров
+	lea	r12, .LC16[rip]                     #использование регистров
 	mulsd	xmm0, xmm2
 	addsd	xmm0, xmm1
 	cvtsi2sd	xmm1, QWORD PTR 48[rsp]
@@ -149,7 +149,7 @@ main:
 	lea	rsi, .LC12[rip]
 	call	fopen@PLT
 	movsd	xmm0, QWORD PTR 8[rsp]
-	mov	rdx, r15
+	mov	rdx, r15                            #rdx := r15
 	mov	esi, 1
 	mov	rdi, rax
 	mov	rbp, rax
@@ -164,7 +164,7 @@ main:
 	movsd	QWORD PTR 16[rsp], xmm0
 	movaps	xmm0, xmm1
 	call	exp@PLT
-	mov	rdx, r14
+	mov	rdx, r14                                #rdx := r14
 	mov	rdi, rbp
 	mov	esi, 1
 	movaps	xmm1, xmm0
@@ -175,8 +175,8 @@ main:
 	divsd	xmm0, xmm1
 	mulsd	xmm0, QWORD PTR .LC2[rip]
 	call	__fprintf_chk@PLT
-	mov	rcx, r13
-	mov	rdx, r12
+	mov	rcx, r13                                #rcx := r13
+	mov	rdx, r12                                #использование регистров
 	mov	esi, 1
 	mov	rdi, rbp
 	xor	eax, eax
@@ -184,7 +184,7 @@ main:
 	jmp	.L8
 .L12:
 	movsd	xmm0, QWORD PTR 8[rsp]
-	mov	rsi, r15
+	mov	rsi, r15                                #rsi := r15
 	mov	edi, 1
 	mov	al, 1
 	call	__printf_chk@PLT
@@ -197,7 +197,7 @@ main:
 	movsd	QWORD PTR 16[rsp], xmm0
 	movaps	xmm0, xmm1
 	call	exp@PLT
-	mov	rsi, r14
+	mov	rsi, r14                                #rsi := r14
 	mov	edi, 1
 	mov	al, 1
 	movaps	xmm1, xmm0
@@ -207,8 +207,8 @@ main:
 	divsd	xmm0, xmm1
 	mulsd	xmm0, QWORD PTR .LC2[rip]
 	call	__printf_chk@PLT
-	mov	rdx, r13
-	mov	rsi, r12
+	mov	rdx, r13                                #rdx := r13
+	mov	rsi, r12                                #использование регистров
 	mov	edi, 1
 	xor	eax, eax
 	call	__printf_chk@PLT

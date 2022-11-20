@@ -286,7 +286,7 @@ main:                                       #функция main
 	movsd	xmm1, QWORD PTR -136[rbp]
 	divsd	xmm1, xmm0                      #xmm1 /= xmm0
 	movsd	xmm0, QWORD PTR .LC2[rip]
-	mulsd	xmm1, xmm0                      #xmm1 *= xmm0
+	mulsd	xmm1, xmm0
 	movq	rax, xmm1
 	movq	xmm0, rax
 	lea	rax, .LC15[rip]                     #получение строки-формата для вызова функции printf
