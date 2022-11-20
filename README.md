@@ -129,7 +129,7 @@ double a = 0;
 
 ---
 ![6_2](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_2.png)
-- Комментарии добавлены в файлы part1_e_cl_os.s и part2_e_cl_os.s(внизу файла зафиксированы все произведённые замены).
+- Комментарии добавлены в файлы part1_e_cl_os.s и part2_e_cl_os.s
 
 ---
 ![6_3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_3.png)
