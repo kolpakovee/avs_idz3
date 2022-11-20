@@ -139,7 +139,26 @@ double a = 0;
 - ДОДЕЛАТЬ!
 ---
 ![6_3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_3.png)
-
+*Тест 1*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test1.jpg)
+*Тест 2*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test2.jpg)
+*Тест 3*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test3.jpg)
+*Тест 4*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test4.jpg)
+*Тест 5*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test5.jpg)
+*Тест 6*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test6.jpg)
+*Тест 7*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test7.jpg)
+*Тест 8*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test8.jpg)
+*Тест 9*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test9.jpg)
+*Тест 10*
+![](https://github.com/kolpakovee/avs_idz3/blob/main/tests/test10.jpg)
 ---
 ![6_5](https://github.com/kolpakovee/avs_idz2/blob/main/6.png)
 - Вес файла part1_e.s - 8 384 Б.
