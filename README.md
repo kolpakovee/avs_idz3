@@ -119,25 +119,40 @@ double a = 0;
 3) DWORD PTR -28[rbp] -> r14d
 4) QWORD PTR -24[rbp] -> r15
 
- - Чтобы увидеть все изменения можно сравнить файлы second.s и optimized.s!
+ - ДОДЕЛАТЬ!
 
 ---
 ![6_2](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_2.png)
 - Комментарии добавлены в файл optimized.s (внизу файла зафиксированы все произведённые замены).
+- ДОДЕЛАТЬ!
 ---
 ![6_3](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_3.png)
 
 ---
 ![6_5](https://github.com/kolpakovee/avs_idz2/blob/main/6.png)
-- Вес файла second.s - 3 837 Б.
-- Вес файла optimized.s - 3 626 Б.
-- Таким образом, размер программы, использующей регистры, меньше на 211 Б.
+- Вес файла part1_e.s - 8 384 Б.
+- Вес файла part1_e_cl_os.s - 4 727 Б.
+- Вес файла part2_e.s - 1 269 Б.
+- Вес файла part2_e_cl_os.s - 674 Б.
 ---
 ![6_4](https://github.com/kolpakovee/avs_idz1/blob/main/criteria/6_4.png)
 - Информация добавлена в отчёт.
 
 ## 7 баллов
 ![7_1](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_1.png)
+- Выполнена реализация программы на ассемблере в виде двух единиц компиляции (так же разделена программа на C)
+```
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part1_e.c -S -Wno-unused-result -o ./part1_e_cl_os.s
+
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part2_e.c -S -Wno-unused-result -o ./part2_e_cl_os.s
+
+gcc part1_e_cl_os.s -c -o part1_e_cl_os.o
+
+gcc part2_e_cl_os.s -c -o part2_e_cl_os.o
+
+gcc ./part2_e_cl_os.o part1_e_cl_os.o foo_e_cl_os -lm
+
+```
 ---
 ![7_2](https://github.com/kolpakovee/avs_idz3/blob/main/images/7_2.png)
 ---
